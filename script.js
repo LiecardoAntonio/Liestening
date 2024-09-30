@@ -91,7 +91,39 @@ let userData = {
   songCurrentTime: 0
 };
 
+//learn arrow function
+// const printGreeting = () => {
+//   console.log("Hello there!");
+// }
 
+// const printMessage = (org) => {
+//   console.log(`${org} is awesome!`);
+// };
+// printMessage("freeCodeCamp");
+
+// const addTwoNumbers = (num1, num2) => {
+//   return num1 + num2;
+// };
+
+// //if we just return a simple expression we can do i t like this:
+// const multiplyNum = (num1, num2) => num1*num2;
+// console.log(addTwoNumbers(3,4));
+// console.log(multiplyNum(3,4));
+
+const renderSongs = (array) => {
+  const songsHTML = array.map((song) => {
+    return `
+      <li id="song-${song.id}" class="playlist-song">
+        <button class="playlist-song-info">
+          <span class="playlist-song-title">${song.title}</span>
+          <span class="playlist-song-artist">${song.artist}</span>
+          <span class="playlist-song-duration">${song.duration}</span>
+        </button>
+      </li>
+    `
+  }); //array.map function takes another function as its parameter
+
+};
 
 
 

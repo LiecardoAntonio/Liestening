@@ -10,3 +10,19 @@ what i learn:
 - Spread operator in JavaScript
   > [...array1]
   > The spread operator (...) allows you to copy all elements from one array into another. It can also be used to concatenate multiple arrays into one without mutating the original array. In the example below, both arr1 and arr2 have been spread into combinedArr:
+
+- Arrow function (anonymous function) in JavaScript
+  > () => {}
+
+- Callback function in JavaScript
+  > A callback function is a function passed into another function as an argument, which is then invoked inside the outer function to complete some kind of routine or action.
+  > e.g .map() function
+
+- array.map()
+  > The map() method is used to iterate through an array and return a new array. It's helpful when you want to create a new array based on the values of an existing array.
+  > map() method takes a function as an argument. This is called a callback function, which is a function that is passed to another function as an argument. 
+  > const numbers = [1, 2, 3];
+    const doubledNumbers = numbers.map((number) => number * 2); // doubledNumbers will be [2, 4, 6]
+  In the example above, the callback function is (number) => number * 2, and it's run on each element in the numbers array. The map() method then returns a new array with the results.
+
+  -
