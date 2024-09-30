@@ -1,0 +1,12 @@
+Basic String & Array Method by building a Music Player website
+
+what i learn:
+- Using SVG to create shapes
+
+- Using Web Audio API
+  > 1) creating audio element:
+    const audio = new Audio();
+
+- Spread operator in JavaScript
+  > [...array1]
+  > The spread operator (...) allows you to copy all elements from one array into another. It can also be used to concatenate multiple arrays into one without mutating the original array. In the example below, both arr1 and arr2 have been spread into combinedArr:
