@@ -25,4 +25,37 @@ what i learn:
     const doubledNumbers = numbers.map((number) => number * 2); // doubledNumbers will be [2, 4, 6]
   In the example above, the callback function is (number) => number * 2, and it's run on each element in the numbers array. The map() method then returns a new array with the results.
 
-  -
+- aria-label property in HTML5
+  > is intended for interactive elements or for elements made interactive via other ARIA declarations when there's no visible text in the DOM to serve as a label. (Learn more about this!!!)
+
+- array.join(separator)
+  > The join() method is used to concatenate all the elements of an array into a single string. It takes an optional parameter called a separator which is used to separate each element of the array. For example:
+  const exampleArr = ["This", "is", "a", "sentence"];
+  const sentence = exampleArr.join(" "); // Separator takes a space character
+  console.log(sentence); // Output: "This is a sentence"
+
+- optional chaining array?.attribute
+  > Optional chaining (?.) helps prevent errors when accessing nested properties that might be null or undefined. For example:
+  const user = {
+    name: "Quincy",
+    address: {
+      city: "San Francisco",
+      state: "CA",
+      country: "USA",
+    },
+  };
+
+  // Accessing nested properties without optional chaining
+  const state = user.address.state; // CA
+
+  // Accessing a non-existent nested property with optional chaining
+  const zipCode = user.address?.zipCode; // Returns undefined instead of throwing an error
+
+- array.sort()
+  > The sort() method converts elements of an array into strings and sorts them in place based on their values in the UTF-16 encoding.
+  > example:
+  const names = ["Tom", "Jessica", "Quincy", "Naomi"];
+  names.sort() // ["Jessica", "Naomi", "Quincy", "Tom"]
+
+- 
+
