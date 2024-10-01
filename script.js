@@ -132,7 +132,9 @@ const renderSongs = (array) => {
 playlistSongs.innerHTML = songsHTML;
 
 const sortSongs = () => {
-  userData?.songs.sort();
+  userData?.songs.sort((a,b) => { //To sort the songs in alphabetical order by title, you will need to pass in a compare callback function into your sort() method.
+    
+  });
 };
 
 
