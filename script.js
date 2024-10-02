@@ -133,13 +133,23 @@ playlistSongs.innerHTML = songsHTML;
 
 const sortSongs = () => {
   userData?.songs.sort((a,b) => { //To sort the songs in alphabetical order by title, you will need to pass in a compare callback function into your sort() method.
-    
-  });
+    if (a.title < b.title) {
+      //In this example, the first condition (a.name < b.name) checks if the name of the first fruit is less than the name of the second fruit. If so, the first fruit is sorted before the second fruit.
+      return -1; //The reason why this example is returning numbers is because the sort() method is expecting a number to be returned. If you return a negative number, the first item is sorted before the second item.
+    } else if(a.title > b.title) {
+      return 1; //The second condition in this example checks if a.name > b.name. If so, the function returns 1, which sorts the first fruit after the second fruit.
+    } else return 0; //In the example, if a.name is equal to b.name, then the function returns 0. This means that nothing changes and the order of a and b remains the same.
+  }); 
+  return userData?.songs; // return the data after sorted
 };
 
 
 // call the function to render all the songs
-renderSongs(userData?.songs); //use optional chaining so it won't throws error when there is a problem while renderring all the songs.
+// 1.
+//renderSongs(userData?.songs); //use optional chaining so it won't throws error when there is a problem while renderring all the songs.
+
+// 2.
+renderSongs(sortSongs());
 
 
 
