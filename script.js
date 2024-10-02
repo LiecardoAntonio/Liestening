@@ -123,12 +123,18 @@ const playSong = (id) => {
   } else {
     audio.currentTime = userData?.songCurrentTime; //Add an else block to handle the song's current playback time. This allows you to resume the current song at the point where it was paused.
   }
+
+  userData.currentSong = song; //You should not use the optional chaining operator ?. in this step because userData.currentSong will not be null or undefined at this point.
+
+  playButton.classList.add("playing");
+  audio.play(); //To finally play the song, use the play() method on the audio variable. play() is a method from the web audio API for playing an mp3 file.
 };
 
 const renderSongs = (array) => {
   const songsHTML = array.map((song) => { ////array.map function takes another function as its parameter
+    //To play the song anytime the user clicks on it, add an onclick attribute to the first button element. Inside the onclick, call the playSong function with song.id.
     return `
-      <li id="song-${song.id}" class="playlist-song">
+      <button class="playlist-song-info" onclick="playSong(${song.id})">
         <button class="playlist-song-info">
           <span class="playlist-song-title">${song.title}</span>
           <span class="playlist-song-artist">${song.artist}</span>
@@ -141,10 +147,22 @@ const renderSongs = (array) => {
           </svg>
       </button>
       </li>
-    ` 
+    `;
   }).join("");
+  playlistSongs.innerHTML = songsHTML;
 };
-playlistSongs.innerHTML = songsHTML;
+
+// add functional to the playbutton to be able to play the song
+playButton.addEventListener('click', () => {
+  if(!userData?.currentSong) {
+    playSong(userData?.songs[0].id);
+  } else {
+    playSong(userData?.currentSong.id);
+  }
+});
+
+
+
 
 const sortSongs = () => {
   userData?.songs.sort((a,b) => { //To sort the songs in alphabetical order by title, you will need to pass in a compare callback function into your sort() method.

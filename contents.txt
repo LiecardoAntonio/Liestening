@@ -61,3 +61,6 @@ what i learn:
 - array.find()
   > The find() method retrieves the first element within an array that fulfills the conditions specified in the provided callback function. If no element satisfies the condition, the method returns undefined.
 
+- audio.play()
+  > play() is a method from the web audio API for playing an mp3 file.
+
