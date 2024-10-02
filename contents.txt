@@ -64,3 +64,5 @@ what i learn:
 - audio.play()
   > play() is a method from the web audio API for playing an mp3 file.
 
+- audio.pause()
+  > pause() is a method of the Web Audio API for pausing music files.

@@ -130,6 +130,36 @@ const playSong = (id) => {
   audio.play(); //To finally play the song, use the play() method on the audio variable. play() is a method from the web audio API for playing an mp3 file.
 };
 
+// add functional to the playbutton to be able to play the song
+playButton.addEventListener('click', () => {
+  if(!userData?.currentSong) {
+    playSong(userData?.songs[0].id);
+  } else {
+    playSong(userData?.currentSong.id);
+  }
+});
+
+//function to pause the current playing song
+const pauseSong = () => {
+  userData.songCurrentTime = audio.currentTime;
+
+  //Use classList and remove() method to remove the .playing class from the playButton, since the song will be paused at this point. To finally pause the song, use the pause() method on the audio variable. pause() is a method of the Web Audio API for pausing music files.
+  playButton.classList.remove("playing");
+  audio.pause(); 
+};
+
+//add pausing functional to the pauseButton
+pauseButton.addEventListener('click', pauseSong)
+
+// add functional to the playbutton to be able to play the song
+playButton.addEventListener('click', () => {
+  if(!userData?.currentSong) {
+    playSong(userData?.songs[0].id);
+  } else {
+    playSong(userData?.currentSong.id);
+  }
+});
+
 const renderSongs = (array) => {
   const songsHTML = array.map((song) => { ////array.map function takes another function as its parameter
     //To play the song anytime the user clicks on it, add an onclick attribute to the first button element. Inside the onclick, call the playSong function with song.id.
@@ -151,17 +181,6 @@ const renderSongs = (array) => {
   }).join("");
   playlistSongs.innerHTML = songsHTML;
 };
-
-// add functional to the playbutton to be able to play the song
-playButton.addEventListener('click', () => {
-  if(!userData?.currentSong) {
-    playSong(userData?.songs[0].id);
-  } else {
-    playSong(userData?.currentSong.id);
-  }
-});
-
-
 
 
 const sortSongs = () => {
