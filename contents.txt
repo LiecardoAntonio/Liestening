@@ -57,5 +57,7 @@ what i learn:
   const names = ["Tom", "Jessica", "Quincy", "Naomi"];
   names.sort() // ["Jessica", "Naomi", "Quincy", "Tom"]
   > sort has other usage like in the JavaScript code of this folder, check it out!.
-- 
+
+- array.find()
+  > The find() method retrieves the first element within an array that fulfills the conditions specified in the provided callback function. If no element satisfies the condition, the method returns undefined.
 

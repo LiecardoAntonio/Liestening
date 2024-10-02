@@ -110,6 +110,21 @@ let userData = {
 // console.log(addTwoNumbers(3,4));
 // console.log(multiplyNum(3,4));
 
+//play a spesific song (use find method to get spesific song)
+const playSong = (id) => {
+  const song = userData?.songs.find((song) => id===song.id); //return the song that has the same id, otherwise return undefined
+  //Inside the playSong function, set the audio.src property equal to song.src. This tells the audio element where to find the audio data for the selected song. Also, set the audio.title property equal to song.title. This tells the audio element what to display as the title of the song.  
+  audio.src = song.src;
+  audio.title = song.title;
+
+  //Before playing the song, you need to make sure it starts from the beginning. This can be achieved by the use of the currentTime property on the audio object. Add an if statement to check whether the userData?.currentSong is falsy OR if userData?.currentSong.id is strictly not equal song.id. This condition will check if no current song is playing or if the current song is different from the one that is about to be played. Inside if block, set the currentTime property of the audio object to 0.
+  if(!userData?.currentSong || userData?.currentSong.id !== song.id) {
+    audio.currentTime = 0; //set to 0 (so it starts from 0 sec when it plays the new song)
+  } else {
+    audio.currentTime = userData?.songCurrentTime; //Add an else block to handle the song's current playback time. This allows you to resume the current song at the point where it was paused.
+  }
+};
+
 const renderSongs = (array) => {
   const songsHTML = array.map((song) => { ////array.map function takes another function as its parameter
     return `
