@@ -139,6 +139,15 @@ playButton.addEventListener('click', () => {
   }
 });
 
+// add functional to the playbutton to be able to play the song
+playButton.addEventListener('click', () => {
+  if(!userData?.currentSong) {
+    playSong(userData?.songs[0].id);
+  } else {
+    playSong(userData?.currentSong.id);
+  }
+});
+
 //function to pause the current playing song
 const pauseSong = () => {
   userData.songCurrentTime = audio.currentTime;
@@ -151,14 +160,20 @@ const pauseSong = () => {
 //add pausing functional to the pauseButton
 pauseButton.addEventListener('click', pauseSong)
 
-// add functional to the playbutton to be able to play the song
-playButton.addEventListener('click', () => {
-  if(!userData?.currentSong) {
-    playSong(userData?.songs[0].id);
+//function for next and prev song
+//Before you start working on playing the next and previous song, you need to get the index of each song in the songs property of userData.
+const getCurrentSongIndex = () => userData?.songs.indexOf(userData?.currentSong); //an arrow function that return the index of the currently playing song.
+
+const playNextSong = () => {
+  if(userData?.currentSong === null) { //This will check if there's no current song playing in the userData object.
+    playSong(userData?.songs[0].id); //if no currently playing song then play the first song.
   } else {
-    playSong(userData?.currentSong.id);
+    //else, then play the next song
+    const currentSongIndex = getCurrentSongIndex();
+    const nextSong = userData?.songs[currentSongIndex+1];
+    playSong(nextSong.id);
   }
-});
+}
 
 const renderSongs = (array) => {
   const songsHTML = array.map((song) => { ////array.map function takes another function as its parameter

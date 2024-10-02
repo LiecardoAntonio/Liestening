@@ -66,3 +66,6 @@ what i learn:
 
 - audio.pause()
   > pause() is a method of the Web Audio API for pausing music files.
+
+- array.indexOf()
+  > The indexOf() array method returns the first index at which a given element can be found in the array, or -1 if the element is not present.
