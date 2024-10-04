@@ -182,8 +182,16 @@ const playPreviousSong = () => {
   if(userData?.currentSong === null) return; //if no song playing currently
   else {
     const currentSongIndex = getCurrentSongIndex();
+    const previousSong = userData?.songs[currentSongIndex-1];
+    playSong(previousSong.id);
   }
 };
+previousButton.addEventListener("click", playPreviousSong);
+
+//highlight the currently playing song
+const highlightCurrentSong = () => {
+  const playlistSongElements = document.querySelectorAll('.playlist-song');
+}
 
 const renderSongs = (array) => {
   const songsHTML = array.map((song) => { ////array.map function takes another function as its parameter
