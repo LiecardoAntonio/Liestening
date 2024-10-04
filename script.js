@@ -175,6 +175,16 @@ const playNextSong = () => {
   }
 }
 
+nextButton.addEventListener('click', playNextSong);
+
+//function to play prev song
+const playPreviousSong = () => {
+  if(userData?.currentSong === null) return; //if no song playing currently
+  else {
+    const currentSongIndex = getCurrentSongIndex();
+  }
+};
+
 const renderSongs = (array) => {
   const songsHTML = array.map((song) => { ////array.map function takes another function as its parameter
     //To play the song anytime the user clicks on it, add an onclick attribute to the first button element. Inside the onclick, call the playSong function with song.id.
