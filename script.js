@@ -191,6 +191,12 @@ previousButton.addEventListener("click", playPreviousSong);
 //highlight the currently playing song
 const highlightCurrentSong = () => {
   const playlistSongElements = document.querySelectorAll('.playlist-song');
+  const songToHighlight = document.getElementById(
+    `song-${userData?.currentSong?.id}`
+  );
+  playlistSongElements.forEach((songEl) => { //loop through all song.
+
+  });
 }
 
 const renderSongs = (array) => {
