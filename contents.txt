@@ -72,3 +72,9 @@ what i learn:
 
 - foreach loop
   > The forEach method is used to loop through an array and perform a function on each element of the array.
+
+- removeAttribute('attribute');
+  > remove attribute from HTMLL
+
+- setAttribute('attribute');
+  > add HTML attribute to the element

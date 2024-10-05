@@ -199,6 +199,14 @@ const highlightCurrentSong = () => {
   });
 }
 
+playlistSongElements.forEach((songEl) => {
+  songEl.removeAttribute("aria-current");
+});
+
+if(songToHighlight) {
+  songToHighlight.setAttribute("aria-current", "true");
+}
+
 const renderSongs = (array) => {
   const songsHTML = array.map((song) => { ////array.map function takes another function as its parameter
     //To play the song anytime the user clicks on it, add an onclick attribute to the first button element. Inside the onclick, call the playSong function with song.id.
