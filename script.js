@@ -127,6 +127,8 @@ const playSong = (id) => {
   userData.currentSong = song; //You should not use the optional chaining operator ?. in this step because userData.currentSong will not be null or undefined at this point.
 
   playButton.classList.add("playing");
+  highlightCurrentSong(); //highlight the currently playing song
+
   audio.play(); //To finally play the song, use the play() method on the audio variable. play() is a method from the web audio API for playing an mp3 file.
 };
 
@@ -187,6 +189,9 @@ const playPreviousSong = () => {
   }
 };
 previousButton.addEventListener("click", playPreviousSong);
+
+//Display the current song title and artist in the player display
+const setPlayerDisplay = () => {};
 
 //highlight the currently playing song
 const highlightCurrentSong = () => {
