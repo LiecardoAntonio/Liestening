@@ -78,3 +78,8 @@ what i learn:
 
 - setAttribute('attribute');
   > add HTML attribute to the element
+
+- textContent()
+  > textContent sets the text of a node and allows you to set or retrieve the text content of an HTML element.
+  > You can use a ternary operator to conditionally set the text content value. Here is an example of assigning the result of a ternary operator to a variable:
+  const example = condition ? "I'm true" : "I'm false";
