@@ -84,3 +84,40 @@ what i learn:
   > textContent sets the text of a node and allows you to set or retrieve the text content of an HTML element.
   > You can use a ternary operator to conditionally set the text content value. Here is an example of assigning the result of a ternary operator to a variable:
   const example = condition ? "I'm true" : "I'm false";
+
+- array.filter();
+  > The filter method keeps only the elements of an array that satisfy the callback function passed to it.
+  > ex: 
+  const numArr = [1, 10, 8, 3, 4, 5]
+  const numsGreaterThanThree = numArr.filter((num) => num > 3);
+  console.log(numsGreaterThanThree) // Output: [10, 8, 4, 5]
+
+- document.createElement() 
+  > createElement() is a DOM method you can use to dynamically create an element using JavaScript. To use createElement(), you call it, then pass in the tag name as a string:
+  > ex:
+  document.createElement('div');
+  //u can also assign it to a variable
+  const divElement = document.createElement('div');
+
+- document.createTextNode()
+  > Now that you've created the button, you need to assign it a text. To do this, you need to use the createTextNode() method of DOM.The createTextNode() method is used to create a text node. To use it, you call it and pass in the text as a string
+  > ex:
+  const myText = document.createTextNode("your text")
+
+- element.id
+  > Now that you've created the resetButton, you need to assign it an id and aria-label attributes. JavaScript provides the id and ariaLabel properties you need to use for this. For example, element.id would set an id attribute, and element.ariaLabel would set an aria-label attribute. Both of them accept their values as a string.
+  > ex: 
+  resetButton.id = "reset";
+
+- element.ariaLabel
+  > Now that you've created the resetButton, you need to assign it an id and aria-label attributes. JavaScript provides the id and ariaLabel properties you need to use for this. For example, element.id would set an id attribute, and element.ariaLabel would set an aria-label attribute. Both of them accept their values as a string.
+  > ex:
+  resetButton.ariaLabel = "Reset playlist";
+
+- parentElement.appendChild(elementToAppend)
+  > appendChild() lets you add a node or an element as the child of another element. In the example below, the text "Click me" would be attached to the button:
+  > ex:
+  const parentElement = document.createElement("button")
+  const parentElementText = document.createTextNode("Click me")
+  // attach the text "Click me" to the button
+  parentElement.appendChild(parentElementText)
