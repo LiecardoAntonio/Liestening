@@ -128,7 +128,7 @@ const playSong = (id) => {
 
   playButton.classList.add("playing");
   highlightCurrentSong(); //highlight the currently playing song
-
+  setPlayerDisplay(); //set the currently playing song to the display
   audio.play(); //To finally play the song, use the play() method on the audio variable. play() is a method from the web audio API for playing an mp3 file.
 };
 
@@ -190,6 +190,18 @@ const playPreviousSong = () => {
 };
 previousButton.addEventListener("click", playPreviousSong);
 
+//function to play a shuffled order song
+const shuffle = () => {
+  userData?.songs.sort(() => Math.random() - 0.5); //One way to randomize an array of items would be to subtract 0.5 from Math.random() which produces random values that are either positive or negative. This makes the comparison result a mix of positive and negative values, leading to a random ordering of elements.
+  userData.currentSong = null;
+  userData.songCurrentTime = 0;
+  renderSongs(userData?.songs); //pass it ro the render function
+  //call the function needed just like the playSong function
+  pauseSong();
+  setPlayerDisplay();
+  setPlayButtonAccessibleText();
+};
+
 //Display the current song title and artist in the player display
 const setPlayerDisplay = () => {
   const playingSong = document.getElementById('player-song-title');
@@ -240,6 +252,12 @@ const renderSongs = (array) => {
     `;
   }).join("");
   playlistSongs.innerHTML = songsHTML;
+};
+
+//to make the playButton shows the song
+const setPlayButtonAccessibleText = () => {
+  const song = userData?.currentSong || userData?.songs[0]; //get the currently playing song or the first song in the playlist.
+  playButton.setAttribute("aria-label", song?.title ? `Play ${song.title}`: "Play") ; //set aria-label attribute with the respective value based on the condition
 };
 
 
