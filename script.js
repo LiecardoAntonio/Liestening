@@ -91,6 +91,8 @@ let userData = {
   songCurrentTime: 0
 };
 
+console.log(userData.songs);
+
 //learn arrow function
 // const printGreeting = () => {
 //   console.log("Hello there!");
@@ -131,15 +133,6 @@ const playSong = (id) => {
   setPlayerDisplay(); //set the currently playing song to the display
   audio.play(); //To finally play the song, use the play() method on the audio variable. play() is a method from the web audio API for playing an mp3 file.
 };
-
-// add functional to the playbutton to be able to play the song
-playButton.addEventListener('click', () => {
-  if(!userData?.currentSong) {
-    playSong(userData?.songs[0].id);
-  } else {
-    playSong(userData?.currentSong.id);
-  }
-});
 
 // add functional to the playbutton to be able to play the song
 playButton.addEventListener('click', () => {
@@ -226,6 +219,9 @@ const deleteSong = (id) => {
     //You need to add the resetText to the resetButton element as a child, and also the resetButton to the playlistSongs element as a child. For this, there is an appendChild() method to use.
     resetButton.appendChild(resetText);
     playlistSongs.appendChild(resetButton); 
+
+    //add event to the resetButton
+    resetButton.addEventListener('click', () => {});
   };
 };
 
@@ -242,22 +238,21 @@ const setPlayerDisplay = () => {
 
 //highlight the currently playing song
 const highlightCurrentSong = () => {
-  const playlistSongElements = document.querySelectorAll('.playlist-song');
+  const playlistSongElements = document.querySelectorAll(".playlist-song");
   const songToHighlight = document.getElementById(
     `song-${userData?.currentSong?.id}`
   );
-  playlistSongElements.forEach((songEl) => { //loop through all song.
 
+  playlistSongElements.forEach((songEl) => {
+    songEl.removeAttribute("aria-current");
   });
-}
 
-playlistSongElements.forEach((songEl) => {
-  songEl.removeAttribute("aria-current");
-});
+  if (songToHighlight) songToHighlight.setAttribute("aria-current", "true");
+  if(songToHighlight) {
+    songToHighlight.setAttribute("aria-current", "true");
+  }
+};
 
-if(songToHighlight) {
-  songToHighlight.setAttribute("aria-current", "true");
-}
 
 const renderSongs = (array) => {
   const songsHTML = array.map((song) => { ////array.map function takes another function as its parameter
@@ -295,7 +290,8 @@ const sortSongs = () => {
       return -1; //The reason why this example is returning numbers is because the sort() method is expecting a number to be returned. If you return a negative number, the first item is sorted before the second item.
     } else if(a.title > b.title) {
       return 1; //The second condition in this example checks if a.name > b.name. If so, the function returns 1, which sorts the first fruit after the second fruit.
-    } else return 0; //In the example, if a.name is equal to b.name, then the function returns 0. This means that nothing changes and the order of a and b remains the same.
+    } 
+    return 0; //In the example, if a.name is equal to b.name, then the function returns 0. This means that nothing changes and the order of a and b remains the same.
   }); 
   return userData?.songs; // return the data after sorted
 };
@@ -307,6 +303,7 @@ const sortSongs = () => {
 
 // 2.
 renderSongs(sortSongs());
+setPlayButtonAccessibleText();
 
 
 
